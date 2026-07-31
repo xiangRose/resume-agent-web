@@ -1,6 +1,6 @@
 # 海投简历 Agent（基于腾讯混元 Hy3）
 
-一个面向求职场景的 Web AI 助手，**默认使用腾讯混元 Hy3**（TokenHub OpenAI 兼容接口），帮助求职者完成简历优化、岗位匹配分析和求职信撰写。
+一个面向求职场景的 Web AI 助手，**默认使用腾讯混元 Hy3**（TokenHub OpenAI 兼容接口），帮助求职者完成简历优化、岗位匹配分析和求职信撰写。视频演示链接：https://www.bilibili.com/video/BV1UjGw6pEUc?vd_source=dc42826d07ac5bebadc975721a09c07a
 
 > 本项目为「2026 犀牛鸟开源人才培养活动 · Part B：用 Hy3 做一个小作品」的展示样例。  
 > 通过真实 Web 产品形态，演示 Hy3 的**复杂推理**、**长文生成**与**多轮对话**能力。
