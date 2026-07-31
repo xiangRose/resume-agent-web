@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Input } from 'tdesign-react';
 import { FolderOpenIcon } from 'tdesign-icons-react';
 import { Bot } from 'lucide-react';
@@ -27,6 +28,16 @@ export function NewChatView({
   onSetPermissionMode,
 }: NewChatViewProps) {
   const selectedAgent = agents.find(a => a.id === newChatAgentId);
+  const [provider, setProvider] = useState<string>('hunyuan');
+
+  useEffect(() => {
+    fetch('/api/config')
+      .then(res => res.json())
+      .then(data => setProvider(data.provider || 'hunyuan'))
+      .catch(() => setProvider('hunyuan'));
+  }, []);
+
+  const supportsFileAccess = provider === 'codebuddy';
 
   return (
     <div className="flex flex-col items-center justify-center h-full">
@@ -109,11 +120,14 @@ export function NewChatView({
           <Input
             value={newChatCwd}
             onChange={(v) => onSetCwd(v as string)}
-            placeholder="例如：/Users/username/projects/my-app"
+            placeholder={supportsFileAccess ? '例如：C:\\Users\\你的用户名\\Documents\\resume' : 'Hy3 模式不支持读取本地文件'}
             prefixIcon={<FolderOpenIcon />}
+            disabled={!supportsFileAccess}
           />
           <p className="text-xs mt-1.5" style={{ color: 'var(--td-text-color-placeholder)' }}>
-            指定 Agent 的工作目录，用于文件操作等
+            {supportsFileAccess
+              ? '指定 Agent 的工作目录，用于读取本地简历 / JD 文件（路径需在运行服务的本机上）'
+              : '当前为 Hy3 纯文本模式，无法读取本地文件。请直接在对话中粘贴简历和 JD 内容。'}
           </p>
         </div>
 
