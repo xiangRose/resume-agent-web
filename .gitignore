@@ -1,0 +1,53 @@
+# 依赖
+node_modules/
+
+# 环境变量（含 API Key，切勿提交）
+.env
+.env.local
+.env.*.local
+
+# 本地数据库（会话记录）
+data/
+*.db
+
+# 构建产物
+dist/
+build/
+*.tsbuildinfo
+
+# TypeScript 编译生成的声明文件（非源码）
+server/*.d.ts
+vite.config.d.ts
+
+# Vite 缓存
+.vite/
+
+# 日志
+*.log
+npm-debug.log*
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 测试 / 覆盖率
+coverage/
+
+# 临时文件
+*.tmp
+.test-*.json
+
+# Cursor
+.cursor/
+
+# 材料包
+# DEMO_MATERIALS/
+DEMO_SCRIPT.md
+DEMO_MATERIALS.md
